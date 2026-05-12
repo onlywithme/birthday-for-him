@@ -205,16 +205,37 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 </p>
 
 <button class="btn" onclick="memories()">NEXT</button>
-<button class="back-btn" onclick="backToBirthday()">BACKi</button>
+<button class="back-btn" onclick="backToBirthday()">BACK</button>
 
 </div>
 </div>
 
+<style>
+
+/* GRID MEMORIES */
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.memory img,
+.memory video{
+  width:100%;
+  border-radius:15px;
+  display:block;
+}
+
+</style>
+  
 <!-- MEMORIES -->
 <div class="container hidden" id="mem">
 <div class="card">
 
-<h1>I LOVE YOU </h1>
+<h1>I LOVE YOU 💙</h1>
+
+<div class="memory-grid">
 
 <div class="memory">
 <img src="vc1.jpeg">
@@ -229,9 +250,15 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 </div>
 
 <div class="memory">
-<img src="kiss.mp4">
+<video controls playsinline>
+  <source src="kiss.mp4" type="video/mp4">
+</video>
 </div>
 
+</div>
+
+</div>
+</div>
 <button class="back-btn" onclick="backToWords()">BACK</button>
 
 </div>
