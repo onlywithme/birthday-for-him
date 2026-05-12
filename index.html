@@ -162,13 +162,24 @@ img{
 <div class="container hidden" id="birthday">
 <div class="card">
 
-<h1>Happy Birthday 💙</h1>
+<h1>HAPPY BIRTHDAY SAYANG 💙</h1>
+
+<img src="cat.jpeg" alt="cat birthday"
+style="
+width:100%;
+max-width:320px;
+aspect-ratio:4/3;
+object-fit:cover;
+margin:10px auto;
+display:block;
+border-radius:15px;
+">
 
 <p>Kamu nyebelin 😤 tapi aku tetap suka.</p>
 <p>Kamu itu kayak WiFi… kalau hilang aku panik 😭</p>
 <p>ulang tahun tapi aku yang baper sendiri 😌💙</p>
 
-<button class="btn" onclick="next()">Lanjut 👉</button>
+<button class="btn" onclick="next()">NEXT</button>
 
 </div>
 </div>
@@ -193,8 +204,8 @@ Kalau kamu stay… aku makin sayang.
 Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 </p>
 
-<button class="btn" onclick="memories()">lanjut</button>
-<button class="back-btn" onclick="backToBirthday()">← kembali</button>
+<button class="btn" onclick="memories()">NEXT</button>
+<button class="back-btn" onclick="backToBirthday()">BACKi</button>
 
 </div>
 </div>
@@ -206,22 +217,22 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 <h1>I LOVE YOU </h1>
 
 <div class="memory">
-<img src="vc1.jpg">
+<img src="vc1.jpeg">
 </div>
 
 <div class="memory">
-<img src="vc2.jpg">
+<img src="vc2.jpeg">
 </div>
 
 <div class="memory">
-<img src="aib.jpg">
+<img src="aib.jpeg">
 </div>
 
 <div class="memory">
-<img src="kiss.gif">
+<img src="kiss.mp4">
 </div>
 
-<button class="back-btn" onclick="backToWords()">← Kembali</button>
+<button class="back-btn" onclick="backToWords()">BACK</button>
 
 </div>
 </div>
@@ -267,7 +278,7 @@ function check(){
     document.getElementById("login").classList.add("hidden");
     document.getElementById("birthday").classList.remove("hidden");
   } else {
-    alert("TETOT 😭 masa ngga tau ultah sendiri");
+    alert("TETOT. masa ngga tau ultah sendiri");
     clearPin();
   }
 }
