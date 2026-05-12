@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For You 💙</title>
+<title>for u 💙</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -109,17 +109,12 @@ h1{margin-bottom:10px;}
 
 /* MEMORY */
 .memory{
-  background:rgba(37,99,235,0.08);
-  padding:15px;
   margin:12px 0;
-  border-radius:15px;
-  text-align:left;
 }
 
 img{
   width:100%;
   border-radius:15px;
-  margin-top:10px;
 }
 </style>
 </head>
@@ -127,16 +122,16 @@ img{
 <body>
 
 <!-- MUSIC -->
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+  <source src="Stephen Sanchez - Until I Found You (Off.mp3)" type="audio/mpeg">
 </audio>
 
-<!-- PIN PAGE -->
+<!-- PIN -->
 <div class="container" id="login">
 <div class="card">
 
 <h1>Masukin PIN dulu 😏</h1>
-<div class="small">Hint: your birthday 💙</div>
+<div class="small">your birthday 💙</div>
 
 <div class="pin-dots">
   <div class="dot" id="d1"></div>
@@ -171,6 +166,7 @@ img{
 
 <p>Kamu nyebelin 😤 tapi aku tetap suka.</p>
 <p>Kamu itu kayak WiFi… kalau hilang aku panik 😭</p>
+<p>ulang tahun tapi aku yang baper sendiri 😌💙</p>
 
 <button class="btn" onclick="next()">Lanjut 👉</button>
 
@@ -181,24 +177,23 @@ img{
 <div class="container hidden" id="words">
 <div class="card">
 
-<h1>For You 💙</h1>
+<h1>for u 💙</h1>
 
 <p style="text-align:left; line-height:1.7;">
 Aku nggak tau sejak kapan kamu jadi penting.
-Tapi yang jelas… sekarang kamu susah diganti 😤
+Tapi sekarang kamu susah diganti 😤
 </p>
 
 <p style="text-align:left; line-height:1.7;">
-Kamu ngeselin, tapi aku nyaman.
-Itu masalahnya 😭
+Kamu ngeselin tapi aku nyaman 😭
 </p>
 
 <p style="text-align:left; line-height:1.7;">
-Kalau kamu pergi, aku protes.
-Tapi kalau kamu stay… aku makin sayang 💙
+Kalau kamu stay… aku makin sayang.
+Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 </p>
 
-<button class="btn" onclick="memories()">Our Memories 💙</button>
+<button class="btn" onclick="memories()">my love 💙</button>
 <button class="back-btn" onclick="backToBirthday()">← Kembali</button>
 
 </div>
@@ -208,30 +203,22 @@ Tapi kalau kamu stay… aku makin sayang 💙
 <div class="container hidden" id="mem">
 <div class="card">
 
-<h1>Our Memories 📸</h1>
+<h1>I LOVE YOU </h1>
 
 <div class="memory">
-<b>First Chat 💬</b><br>
-8 Februari 2026  
-<img src="chat.jpg">
+<img src="vc1.jpg">
 </div>
 
 <div class="memory">
-<b>First Call 📞</b><br>
-25 Februari 2026
-<img src="call.jpg">
+<img src="vc2.jpg">
 </div>
 
 <div class="memory">
-<b>First Meet 🤍</b><br>
-4 April 2026  
-<img src="meet.jpg">
+<img src="aib.jpg">
 </div>
 
 <div class="memory">
-<b>Us 💙</b><br>
-19 Februari 2026  
-<img src="us.jpg">
+<img src="kiss.gif">
 </div>
 
 <button class="back-btn" onclick="backToWords()">← Kembali</button>
@@ -244,6 +231,7 @@ Tapi kalau kamu stay… aku makin sayang 💙
 let pin = "";
 const correct = "1405";
 
+/* DOT UPDATE */
 function update(){
   for(let i=1;i<=4;i++){
     document.getElementById("d"+i).classList.remove("filled");
@@ -265,16 +253,26 @@ function clearPin(){
   update();
 }
 
+/* MUSIC */
+function playMusic(){
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.4;
+  music.play().catch(()=>{});
+}
+
+/* CHECK PIN */
 function check(){
   if(pin === correct){
+    playMusic();
     document.getElementById("login").classList.add("hidden");
     document.getElementById("birthday").classList.remove("hidden");
   } else {
-    alert("TETOT. coba inget lagi");
+    alert("TETOT 😭 masa ngga tau ultah sendiri");
     clearPin();
   }
 }
 
+/* NAVIGATION */
 function next(){
   document.getElementById("birthday").classList.add("hidden");
   document.getElementById("words").classList.remove("hidden");
