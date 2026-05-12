@@ -31,7 +31,7 @@ body{
 .card{
   width:100%;
   max-width:650px;
-  background:rgba(255,255,255,0.8);
+  background:rgba(255,255,255,0.85);
   padding:30px;
   border-radius:25px;
   text-align:center;
@@ -49,6 +49,7 @@ h1{margin-bottom:10px;}
   margin-bottom:15px;
 }
 
+/* PIN */
 .pin-dots{
   display:flex;
   justify-content:center;
@@ -84,10 +85,7 @@ h1{margin-bottom:10px;}
   cursor:pointer;
 }
 
-.keypad button:hover{
-  background:#3b82f6;
-}
-
+/* BUTTON */
 .btn{
   margin-top:15px;
   padding:12px 18px;
@@ -98,6 +96,18 @@ h1{margin-bottom:10px;}
   cursor:pointer;
 }
 
+.back-btn{
+  margin-top:10px;
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  background:#94a3b8;
+  color:white;
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* MEMORY */
 .memory{
   background:rgba(37,99,235,0.08);
   padding:15px;
@@ -121,12 +131,12 @@ img{
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PIN -->
+<!-- PIN PAGE -->
 <div class="container" id="login">
 <div class="card">
 
 <h1>Masukin PIN dulu 😏</h1>
-<div class="small">Hint: tanggal yang kamu pura-pura lupa tapi aku inget 😌</div>
+<div class="small">Hint: your birthday 💙</div>
 
 <div class="pin-dots">
   <div class="dot" id="d1"></div>
@@ -159,14 +169,8 @@ img{
 
 <h1>Happy Birthday 💙</h1>
 
-<p>
-Kamu tau nggak… kamu itu nyebelin 😤  
-tapi aku nggak bisa nggak peduli.
-</p>
-
-<p>
-Kayak sinyal WiFi, kalau hilang… aku bingung 😭
-</p>
+<p>Kamu nyebelin 😤 tapi aku tetap suka.</p>
+<p>Kamu itu kayak WiFi… kalau hilang aku panik 😭</p>
 
 <button class="btn" onclick="next()">Lanjut 👉</button>
 
@@ -180,26 +184,22 @@ Kayak sinyal WiFi, kalau hilang… aku bingung 😭
 <h1>For You 💙</h1>
 
 <p style="text-align:left; line-height:1.7;">
-Aku nggak tau sejak kapan kamu jadi “kebiasaan” aku.
-Awalnya biasa aja… eh malah jadi penting 😭
+Aku nggak tau sejak kapan kamu jadi penting.
+Tapi yang jelas… sekarang kamu susah diganti 😤
 </p>
 
 <p style="text-align:left; line-height:1.7;">
-Kamu itu ngeselin, kadang cuek, kadang bikin kesel…  
-tapi anehnya aku tetep milih kamu.
+Kamu ngeselin, tapi aku nyaman.
+Itu masalahnya 😭
 </p>
 
 <p style="text-align:left; line-height:1.7;">
-Aku nggak janji jadi yang paling sempurna.  
-Tapi aku janji… aku nggak bakal pergi tanpa alasan yang jelas.
-</p>
-
-<p style="text-align:left; line-height:1.7;">
-Jadi jangan ngilang ya 😤  
-aku udah nyaman… itu bahaya.
+Kalau kamu pergi, aku protes.
+Tapi kalau kamu stay… aku makin sayang 💙
 </p>
 
 <button class="btn" onclick="memories()">Our Memories 💙</button>
+<button class="back-btn" onclick="backToBirthday()">← Kembali</button>
 
 </div>
 </div>
@@ -219,6 +219,7 @@ aku udah nyaman… itu bahaya.
 <div class="memory">
 <b>First Call 📞</b><br>
 25 Februari 2026
+<img src="call.jpg">
 </div>
 
 <div class="memory">
@@ -228,10 +229,12 @@ aku udah nyaman… itu bahaya.
 </div>
 
 <div class="memory">
-<b>Us 💙 (Jadian)</b><br>
+<b>Us 💙</b><br>
 19 Februari 2026  
 <img src="us.jpg">
 </div>
+
+<button class="back-btn" onclick="backToWords()">← Kembali</button>
 
 </div>
 </div>
@@ -266,8 +269,8 @@ function check(){
   if(pin === correct){
     document.getElementById("login").classList.add("hidden");
     document.getElementById("birthday").classList.remove("hidden");
-  }else{
-    alert("Salah 😭 coba inget lagi dong");
+  } else {
+    alert("TETOT. coba inget lagi");
     clearPin();
   }
 }
@@ -280,6 +283,16 @@ function next(){
 function memories(){
   document.getElementById("words").classList.add("hidden");
   document.getElementById("mem").classList.remove("hidden");
+}
+
+function backToBirthday(){
+  document.getElementById("words").classList.add("hidden");
+  document.getElementById("birthday").classList.remove("hidden");
+}
+
+function backToWords(){
+  document.getElementById("mem").classList.add("hidden");
+  document.getElementById("words").classList.remove("hidden");
 }
 
 </script>
