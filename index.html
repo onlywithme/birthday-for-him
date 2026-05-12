@@ -1,313 +1,222 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday 💙</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Birthday 💙</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
 
-    body{
-      background: linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
-      min-height:100vh;
-      color:white;
-      overflow:hidden;
-    }
+body{
+  background:linear-gradient(135deg,#0f172a,#1e3a8a,#3b82f6);
+  color:white;
+}
 
-    .container{
-      width:100%;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:25px;
-    }
+.container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
 
-    .card{
-      width:100%;
-      max-width:700px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(14px);
-      border-radius:24px;
-      padding:40px;
-      text-align:center;
-      box-shadow:0 10px 40px rgba(0,0,0,0.35);
-      animation:fade 0.7s ease;
-    }
+.card{
+  width:100%;
+  max-width:650px;
+  background:rgba(255,255,255,0.08);
+  padding:35px;
+  border-radius:24px;
+  text-align:center;
+  backdrop-filter:blur(15px);
+}
 
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+.hidden{display:none;}
 
-    h1{
-      font-size:2.2rem;
-      margin-bottom:15px;
-    }
+h1{margin-bottom:15px;}
 
-    p{
-      color:#dbeafe;
-      line-height:1.8;
-      margin-bottom:18px;
-    }
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:20px;
+}
 
-    input{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:14px;
-      outline:none;
-      margin-top:15px;
-      background:rgba(255,255,255,0.12);
-      color:white;
-      font-size:1rem;
-      text-align:center;
-    }
+.keypad button{
+  padding:18px;
+  border:none;
+  border-radius:12px;
+  background:#60a5fa;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
 
-    input::placeholder{
-      color:#cbd5e1;
-    }
+.keypad button:hover{
+  background:#3b82f6;
+}
 
-    button{
-      margin-top:20px;
-      padding:14px 28px;
-      border:none;
-      border-radius:14px;
-      background:#60a5fa;
-      color:white;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.3s;
-      font-size:1rem;
-    }
+.pin-dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:15px 0;
+}
 
-    button:hover{
-      background:#3b82f6;
-      transform:translateY(-2px);
-    }
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:2px solid white;
+}
 
-    .hidden{
-      display:none;
-    }
+.dot.filled{
+  background:white;
+}
 
-    .cake{
-      font-size:90px;
-      margin:20px 0;
-      animation:float 2s ease-in-out infinite;
-    }
+.memory{
+  background:rgba(255,255,255,0.1);
+  padding:15px;
+  margin:10px 0;
+  border-radius:15px;
+  text-align:left;
+}
 
-    @keyframes float{
-      0%,100%{
-        transform:translateY(0);
-      }
-      50%{
-        transform:translateY(-10px);
-      }
-    }
-
-    .memory-box{
-      margin-top:25px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:15px;
-    }
-
-    .memory{
-      background:rgba(255,255,255,0.08);
-      border-radius:18px;
-      padding:30px;
-      color:#bfdbfe;
-      border:1px solid rgba(255,255,255,0.1);
-    }
-
-    .small{
-      font-size:0.9rem;
-      color:#bfdbfe;
-    }
-  </style>
+img{
+  width:100%;
+  border-radius:15px;
+  margin-top:10px;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- LOGIN -->
-  <section class="container" id="loginPage">
-    <div class="card">
-      <h1>Hi Sayang 💙</h1>
+<!-- LOGIN -->
+<div class="container" id="loginPage">
+<div class="card">
 
-      <p>
-        sebelum masuk...  
-        coba masukin pin dulu yaa ✨
-      </p>
+<h1>Masukkan PIN 💙</h1>
 
-      <input 
-        type="password" 
-        id="pinInput" 
-        placeholder="tanggal ultah kamu"
-      >
+<div class="pin-dots">
+  <div class="dot" id="d1"></div>
+  <div class="dot" id="d2"></div>
+  <div class="dot" id="d3"></div>
+  <div class="dot" id="d4"></div>
+</div>
 
-      <button onclick="checkPin()">
-        Masuk
-      </button>
+<div class="keypad">
+<button onclick="press(1)">1</button>
+<button onclick="press(2)">2</button>
+<button onclick="press(3)">3</button>
+<button onclick="press(4)">4</button>
+<button onclick="press(5)">5</button>
+<button onclick="press(6)">6</button>
+<button onclick="press(7)">7</button>
+<button onclick="press(8)">8</button>
+<button onclick="press(9)">9</button>
+<button onclick="clearPin()">⌫</button>
+<button onclick="press(0)">0</button>
+<button onclick="checkPin()">✔</button>
+</div>
 
-      <p class="small">
-        hint: ddmm 👀
-      </p>
-    </div>
-  </section>
+</div>
+</div>
 
-  <!-- BIRTHDAY -->
-  <section class="container hidden" id="birthdayPage">
-    <div class="card">
+<!-- BIRTHDAY -->
+<div class="container hidden" id="birthday">
+<div class="card">
 
-      <h1>Happy Birthday 💙</h1>
+<h1>Happy Birthday 💙</h1>
 
-      <div class="cake">🎂</div>
+<p>Selamat ulang tahun yaa 💙</p>
 
-      <p>
-        selamat ulang tahun yaa cintaa 🤍
-      </p>
+<button onclick="showMemories()">Our Memories →</button>
 
-      <p>
-        semoga semua hal baik selalu datang ke kamu,  
-        semua doa kamu tercapai,  
-        dan semoga kamu selalu bahagiaa.
-      </p>
+</div>
+</div>
 
-      <p>
-        thankyou udah bertahan sejauh ini,  
-        i'm so proud of you 💙
-      </p>
+<!-- MEMORIES -->
+<div class="container hidden" id="memories">
+<div class="card">
 
-      <button onclick="nextPage('letterPage')">
-        Selanjutnya →
-      </button>
+<h1>Our Memories 📸</h1>
 
-    </div>
-  </section>
+<div class="memory">
+<b>First Chat 💬</b><br>
+<!-- isi tanggal -->
+12 April 2024
+</div>
 
-  <!-- LONG TEXT -->
-  <section class="container hidden" id="letterPage">
-    <div class="card">
+<div class="memory">
+<b>First Call 📞</b><br>
+<!-- isi tanggal -->
+18 April 2024
+</div>
 
-      <h1>For You 💌</h1>
+<div class="memory">
+<b>First Meet 🤍</b><br>
+<!-- isi tanggal -->
+02 Mei 2024
+</div>
 
-      <p>
-        makasih yaa udah hadir di hidup aku.
-      </p>
+<div class="memory">
+<b>Us 💙</b>
+<img src="foto.jpg" alt="us">
+</div>
 
-      <p>
-        mungkin aku ga selalu sempurna,  
-        kadang nyebelin, kadang bikin kesel juga 😭
-      </p>
+</div>
+</div>
 
-      <p>
-        tapi aku bener-bener bersyukur  
-        bisa kenal dan punya kamu sampai sekarang.
-      </p>
+<script>
 
-      <p>
-        semoga di umur kamu yang baru ini,  
-        semua rasa sedih berkurang  
-        dan semua bahagia bertambah 💙
-      </p>
+let pin = "";
+const correctPin = "1905";
 
-      <p>
-        jangan terlalu keras sama diri sendiri ya sayang.
-      </p>
+function updateDots(){
+  for(let i=1;i<=4;i++){
+    document.getElementById("d"+i).classList.remove("filled");
+  }
+  for(let i=0;i<pin.length;i++){
+    document.getElementById("d"+(i+1)).classList.add("filled");
+  }
+}
 
-      <p>
-        and please remember...  
-        i'm always here for you 🤍
-      </p>
+function press(num){
+  if(pin.length < 4){
+    pin += num;
+    updateDots();
+  }
+}
 
-      <button onclick="nextPage('memoryPage')">
-        Lihat Our Memory →
-      </button>
+function clearPin(){
+  pin = "";
+  updateDots();
+}
 
-    </div>
-  </section>
+function checkPin(){
+  if(pin === correctPin){
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("birthday").classList.remove("hidden");
+  } else {
+    alert("PIN salah");
+    clearPin();
+  }
+}
 
-  <!-- MEMORY -->
-  <section class="container hidden" id="memoryPage">
-    <div class="card">
+function showMemories(){
+  document.getElementById("birthday").classList.add("hidden");
+  document.getElementById("memories").classList.remove("hidden");
+}
 
-      <h1>Our Memories 📸</h1>
-
-      <p>
-        little moments, forever favorite 💙
-      </p>
-
-      <div class="memory-box">
-        <div class="memory">first call ☎️</div>
-        <div class="memory">first date 🌷</div>
-        <div class="memory">late night talks 🌙</div>
-        <div class="memory">all our laughs 🤍</div>
-      </div>
-
-      <button onclick="location.reload()">
-        Replay ✨
-      </button>
-
-    </div>
-  </section>
-
-  <script>
-
-    // PIN
-    const correctPin = "1904";
-
-    function checkPin(){
-
-      const pin = document.getElementById("pinInput").value;
-
-      if(pin === correctPin){
-
-        document
-          .getElementById("loginPage")
-          .classList.add("hidden");
-
-        document
-          .getElementById("birthdayPage")
-          .classList.remove("hidden");
-
-      } else {
-
-        alert("PIN salah 😠");
-
-      }
-    }
-
-    function nextPage(pageId){
-
-      const pages = document.querySelectorAll("section");
-
-      pages.forEach(page => {
-        page.classList.add("hidden");
-      });
-
-      document
-        .getElementById(pageId)
-        .classList.remove("hidden");
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
-```
