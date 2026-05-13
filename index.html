@@ -87,7 +87,6 @@ h1{margin-bottom:10px;}
 
 /* BUTTON */
 .btn{
-  margin-top:15px;
   padding:12px 18px;
   border:none;
   border-radius:12px;
@@ -97,7 +96,6 @@ h1{margin-bottom:10px;}
 }
 
 .back-btn{
-  margin-top:10px;
   padding:10px 14px;
   border:none;
   border-radius:10px;
@@ -105,6 +103,13 @@ h1{margin-bottom:10px;}
   color:white;
   cursor:pointer;
   font-size:13px;
+}
+
+.button-group{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
 }
 
 /* MEMORY */
@@ -115,6 +120,21 @@ h1{margin-bottom:10px;}
 img{
   width:100%;
   border-radius:15px;
+}
+
+/* GRID MEMORIES */
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.memory img,
+.memory video{
+  width:100%;
+  border-radius:15px;
+  display:block;
 }
 </style>
 </head>
@@ -179,7 +199,9 @@ border-radius:15px;
 <p>Kamu itu kayak WiFi… kalau hilang aku panik 😭</p>
 <p>ulang tahun tapi aku yang baper sendiri 😌💙</p>
 
+<div class="button-group">
 <button class="btn" onclick="next()">NEXT</button>
+</div>
 
 </div>
 </div>
@@ -190,45 +212,20 @@ border-radius:15px;
 
 <h1>for u 💙</h1>
 
-<p style="text-align:left; line-height:1.7;">
-Aku nggak tau sejak kapan kamu jadi penting.
-Tapi sekarang kamu susah diganti 😤
-</p>
+<p id="text1" style="text-align:left; line-height:1.7;"></p>
 
-<p style="text-align:left; line-height:1.7;">
-Kamu ngeselin tapi aku nyaman 😭
-</p>
+<p id="text2" style="text-align:left; line-height:1.7;"></p>
 
-<p style="text-align:left; line-height:1.7;">
-Kalau kamu stay… aku makin sayang.
-Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
-</p>
+<p id="text3" style="text-align:left; line-height:1.7;"></p>
 
+<div class="button-group" id="wordButtons" style="display:none;">
 <button class="btn" onclick="memories()">NEXT</button>
 <button class="back-btn" onclick="backToBirthday()">BACK</button>
+</div>
 
 </div>
 </div>
 
-<style>
-
-/* GRID MEMORIES */
-.memory-grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:10px;
-  margin-top:15px;
-}
-
-.memory img,
-.memory video{
-  width:100%;
-  border-radius:15px;
-  display:block;
-}
-
-</style>
-  
 <!-- MEMORIES -->
 <div class="container hidden" id="mem">
 <div class="card">
@@ -240,7 +237,7 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 <div class="memory">
 <img src="motor.jpeg">
 </div>
-  
+
 <div class="memory">
 <img src="fun.jpeg">
 </div>
@@ -249,29 +246,27 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 <img src="sekolah.jpeg">
 </div>
 
- <div class="memory">
+<div class="memory">
 <video autoplay loop muted playsinline>
   <source src="kiss.mp4" type="video/mp4">
 </video>
-</div> 
-  
+</div>
+
 <div class="memory">
 <img src="vc1.jpeg">
 </div>
-  
+
 <div class="memory">
-<img src="vc2.jpeg">
+<video autoplay loop muted playsinline>
+  <source src="goyang.mp4" type="video/mp4">
+</video>
 </div>
 
 </div>
 
-<!-- BACK BUTTON -->
+<div class="button-group">
 <button class="back-btn" onclick="backToWords()">BACK</button>
-
 </div>
-</div>
-</div>
-<button class="back-btn" onclick="backToWords()">BACK</button>
 
 </div>
 </div>
@@ -299,7 +294,7 @@ function tap(n){
 }
 
 function clearPin(){
-  pin = "";
+  pin = pin.slice(0, -1);
   update();
 }
 
@@ -322,10 +317,65 @@ function check(){
   }
 }
 
+/* TYPING EFFECT */
+let typed = false;
+
+function typeWriter(element, text, speed, callback){
+  let i = 0;
+
+  function typing(){
+    if(i < text.length){
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    } else if(callback){
+      callback();
+    }
+  }
+
+  typing();
+}
+
+function startTyping(){
+
+  if(typed) return;
+  typed = true;
+
+  const t1 = "Aku nggak tau sejak kapan kamu jadi penting.<br>Tapi sekarang kamu susah diganti 😤";
+
+  const t2 = "Kamu ngeselin tapi aku nyaman 😭";
+
+  const t3 = "Kalau kamu stay… aku makin sayang.<br>Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)";
+
+  typeWriter(document.getElementById("text1"), t1, 35, () => {
+
+    setTimeout(() => {
+
+      typeWriter(document.getElementById("text2"), t2, 35, () => {
+
+        setTimeout(() => {
+
+          typeWriter(document.getElementById("text3"), t3, 35, () => {
+
+            document.getElementById("wordButtons").style.display = "flex";
+
+          });
+
+        }, 500);
+
+      });
+
+    }, 500);
+
+  });
+}
+
 /* NAVIGATION */
 function next(){
   document.getElementById("birthday").classList.add("hidden");
   document.getElementById("words").classList.remove("hidden");
+
+  startTyping();
 }
 
 function memories(){
