@@ -212,13 +212,21 @@ border-radius:15px;
 
 <h1>for u 💙</h1>
 
-<p id="text1" style="text-align:left; line-height:1.7;"></p>
+<p style="text-align:left; line-height:1.7;">
+Aku nggak tau sejak kapan kamu jadi penting.
+Tapi sekarang kamu susah diganti 😤
+</p>
 
-<p id="text2" style="text-align:left; line-height:1.7;"></p>
+<p style="text-align:left; line-height:1.7;">
+Kamu ngeselin tapi aku nyaman 😭
+</p>
 
-<p id="text3" style="text-align:left; line-height:1.7;"></p>
+<p style="text-align:left; line-height:1.7;">
+Kalau kamu stay… aku makin sayang.
+Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
+</p>
 
-<div class="button-group" id="wordButtons" style="display:none;">
+<div class="button-group">
 <button class="btn" onclick="memories()">NEXT</button>
 <button class="back-btn" onclick="backToBirthday()">BACK</button>
 </div>
@@ -317,65 +325,10 @@ function check(){
   }
 }
 
-/* TYPING EFFECT */
-let typed = false;
-
-function typeWriter(element, text, speed, callback){
-  let i = 0;
-
-  function typing(){
-    if(i < text.length){
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typing, speed);
-    } else if(callback){
-      callback();
-    }
-  }
-
-  typing();
-}
-
-function startTyping(){
-
-  if(typed) return;
-  typed = true;
-
-  const t1 = "Aku nggak tau sejak kapan kamu jadi penting.<br>Tapi sekarang kamu susah diganti 😤";
-
-  const t2 = "Kamu ngeselin tapi aku nyaman 😭";
-
-  const t3 = "Kalau kamu stay… aku makin sayang.<br>Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)";
-
-  typeWriter(document.getElementById("text1"), t1, 35, () => {
-
-    setTimeout(() => {
-
-      typeWriter(document.getElementById("text2"), t2, 35, () => {
-
-        setTimeout(() => {
-
-          typeWriter(document.getElementById("text3"), t3, 35, () => {
-
-            document.getElementById("wordButtons").style.display = "flex";
-
-          });
-
-        }, 500);
-
-      });
-
-    }, 500);
-
-  });
-}
-
 /* NAVIGATION */
 function next(){
   document.getElementById("birthday").classList.add("hidden");
   document.getElementById("words").classList.remove("hidden");
-
-  startTyping();
 }
 
 function memories(){
