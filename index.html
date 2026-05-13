@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>for u 💙</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- FONT MODERN -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Poppins;
+  font-family:'Inter', sans-serif;
 }
 
 body{
-  background:linear-gradient(135deg,#e0f2fe,#bae6fd,#93c5fd);
+  background:linear-gradient(135deg,#dbeafe,#bfdbfe,#93c5fd);
   color:#0f172a;
 }
 
+/* CONTAINER */
 .container{
   min-height:100vh;
   display:flex;
@@ -28,25 +30,31 @@ body{
   padding:20px;
 }
 
+/* CARD */
 .card{
   width:100%;
-  max-width:650px;
-  background:rgba(255,255,255,0.85);
-  padding:30px;
-  border-radius:25px;
+  max-width:600px;
+  background:rgba(255,255,255,0.75);
+  padding:28px;
+  border-radius:20px;
   text-align:center;
-  backdrop-filter:blur(12px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.10);
 }
 
 .hidden{display:none;}
 
-h1{margin-bottom:10px;}
+h1{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:12px;
+  color:#0f172a;
+}
 
-.small{
-  font-size:13px;
-  color:#334155;
-  margin-bottom:15px;
+/* TEXT STYLE */
+p{
+  font-size:15px;
+  color:#1e293b;
 }
 
 /* PIN */
@@ -58,14 +66,14 @@ h1{margin-bottom:10px;}
 }
 
 .dot{
-  width:12px;
-  height:12px;
+  width:11px;
+  height:11px;
   border-radius:50%;
-  border:2px solid #2563eb;
+  border:2px solid #3b82f6;
 }
 
 .dot.filled{
-  background:#2563eb;
+  background:#3b82f6;
 }
 
 .keypad{
@@ -76,23 +84,24 @@ h1{margin-bottom:10px;}
 }
 
 .keypad button{
-  padding:16px;
+  padding:15px;
   border:none;
-  border-radius:12px;
+  border-radius:10px;
   background:#60a5fa;
   color:white;
-  font-size:18px;
+  font-size:16px;
   cursor:pointer;
 }
 
 /* BUTTON */
 .btn{
-  padding:12px 18px;
+  padding:11px 16px;
   border:none;
-  border-radius:12px;
+  border-radius:10px;
   background:#2563eb;
   color:white;
   cursor:pointer;
+  font-weight:500;
 }
 
 .back-btn{
@@ -109,20 +118,10 @@ h1{margin-bottom:10px;}
   display:flex;
   justify-content:center;
   gap:10px;
-  margin-top:15px;
+  margin-top:18px;
 }
 
-/* MEMORY */
-.memory{
-  margin:12px 0;
-}
-
-img{
-  width:100%;
-  border-radius:15px;
-}
-
-/* GRID MEMORIES */
+/* MEMORY GRID */
 .memory-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -133,9 +132,16 @@ img{
 .memory img,
 .memory video{
   width:100%;
-  border-radius:15px;
-  display:block;
+  border-radius:12px;
 }
+
+/* LITTLE REMINDER STYLE */
+.reminder p{
+  margin:10px 0;
+  font-size:15px;
+  color:#334155;
+}
+
 </style>
 </head>
 
@@ -150,8 +156,8 @@ img{
 <div class="container" id="login">
 <div class="card">
 
-<h1>Masukin PIN dulu 😏</h1>
-<div class="small">your birthday 💙</div>
+<h1>Masukin PIN dulu</h1>
+<p style="font-size:13px;color:#64748b;">your birthday 💙</p>
 
 <div class="pin-dots">
   <div class="dot" id="d1"></div>
@@ -170,9 +176,9 @@ img{
 <button onclick="tap(7)">7</button>
 <button onclick="tap(8)">8</button>
 <button onclick="tap(9)">9</button>
-<button onclick="clearPin()">⌫</button>
+<button onclick="clearPin()">⌦</button>
 <button onclick="tap(0)">0</button>
-<button onclick="check()">✔</button>
+<button onclick="check()">✓</button>
 </div>
 
 </div>
@@ -184,16 +190,7 @@ img{
 
 <h1>HAPPY BIRTHDAY SAYANG 💙</h1>
 
-<img src="cat.jpeg" alt="cat birthday"
-style="
-width:100%;
-max-width:320px;
-aspect-ratio:4/3;
-object-fit:cover;
-margin:10px auto;
-display:block;
-border-radius:15px;
-">
+<img src="cat.jpeg" style="width:100%;border-radius:12px;margin:10px 0;">
 
 <p>Kamu nyebelin 😤 tapi aku tetap suka.</p>
 <p>Kamu itu kayak WiFi… kalau hilang aku panik 😭</p>
@@ -206,25 +203,20 @@ border-radius:15px;
 </div>
 </div>
 
-<!-- WORDS -->
+<!-- LITTLE REMINDER -->
 <div class="container hidden" id="words">
 <div class="card">
 
-<h1>for u 💙</h1>
+<h1>little reminder 💙</h1>
 
-<p style="text-align:left; line-height:1.7;">
-Aku nggak tau sejak kapan kamu jadi penting.
-Tapi sekarang kamu susah diganti 😤
-</p>
+<div class="reminder" style="text-align:left;margin-top:10px;line-height:1.8;">
 
-<p style="text-align:left; line-height:1.7;">
-Kamu ngeselin tapi aku nyaman 😭
-</p>
+<p>jangan sering begadang 😤</p>
+<p>jangan lupa makan</p>
+<p>kalau capek istirahat dulu</p>
+<p>aku bawel karena peduli 😌💙</p>
 
-<p style="text-align:left; line-height:1.7;">
-Kalau kamu stay… aku makin sayang.
-Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
-</p>
+</div>
 
 <div class="button-group">
 <button class="btn" onclick="memories()">NEXT</button>
@@ -242,33 +234,12 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 
 <div class="memory-grid">
 
-<div class="memory">
-<img src="motor.jpeg">
-</div>
-
-<div class="memory">
-<img src="fun.jpeg">
-</div>
-
-<div class="memory">
-<img src="sekolah.jpeg">
-</div>
-
-<div class="memory">
-<video autoplay loop muted playsinline>
-  <source src="kiss.mp4" type="video/mp4">
-</video>
-</div>
-
-<div class="memory">
-<img src="vc1.jpeg">
-</div>
-
-<div class="memory">
-<video autoplay loop muted playsinline>
-  <source src="goyang.mp4" type="video/mp4">
-</video>
-</div>
+<div class="memory"><img src="motor.jpeg"></div>
+<div class="memory"><img src="fun.jpeg"></div>
+<div class="memory"><img src="sekolah.jpeg"></div>
+<div class="memory"><video autoplay loop muted playsinline><source src="kiss.mp4"></video></div>
+<div class="memory"><img src="vc1.jpeg"></div>
+<div class="memory"><video autoplay loop muted playsinline><source src="goyang.mp4"></video></div>
 
 </div>
 
@@ -284,7 +255,6 @@ Kalau kamu pergi… aku pura-pura biasa aja (padahal nggak 😤💙)
 let pin = "";
 const correct = "1405";
 
-/* DOT UPDATE */
 function update(){
   for(let i=1;i<=4;i++){
     document.getElementById("d"+i).classList.remove("filled");
@@ -302,30 +272,27 @@ function tap(n){
 }
 
 function clearPin(){
-  pin = pin.slice(0, -1);
+  pin = pin.slice(0,-1);
   update();
 }
 
-/* MUSIC */
 function playMusic(){
   const music = document.getElementById("bgMusic");
   music.volume = 0.4;
   music.play().catch(()=>{});
 }
 
-/* CHECK PIN */
 function check(){
   if(pin === correct){
     playMusic();
     document.getElementById("login").classList.add("hidden");
     document.getElementById("birthday").classList.remove("hidden");
   } else {
-    alert("TETOT. masa ngga tau ultah sendiri");
+    alert("TETOT. salah");
     clearPin();
   }
 }
 
-/* NAVIGATION */
 function next(){
   document.getElementById("birthday").classList.add("hidden");
   document.getElementById("words").classList.remove("hidden");
